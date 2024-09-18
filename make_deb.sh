@@ -10,6 +10,7 @@ mkdir -pv packaging/DEBIAN
 mkdir -pv packaging/var/lib/mpd/playlists
 mkdir -pv packaging/var/www/html/radio
 mkdir -pv packaging/usr/bin
+mkdir -pv packaging/etc
 
 
 # Copy files to corresponding directories
@@ -19,7 +20,9 @@ cp -vf src/oradio.js packaging/var/www/html/radio
 cp -vf src/oradio.php packaging/var/www/html/radio
 cp -vf src/index.html packaging/var/www/html/radio
 cp -vf src/style.css packaging/var/www/html/radio
-cp -vf src/radio.sh packaging/usr/bin
+cp -vf src/oradio.sh packaging/usr/bin
+cp -vf src/mpd.conf packaging/etc/
+cp -vf src/oradio.postinst packaging/DEBIAN/
 
 
 # Create control file
@@ -28,7 +31,7 @@ echo "Package: oradio
 Version: ${packageVersion}
 Architecture: all
 Maintainer: airasz
-Depends: python3-tk,policykit-1,python3 (>=3.6)
+Depends: mpc,mpd,apache2,php,python3 (>=3.6)
 Priority: optional
 Homepage: https://github.com/airasz/oradio
 Description: internet Radio using mpc mpd" > packaging/DEBIAN/control

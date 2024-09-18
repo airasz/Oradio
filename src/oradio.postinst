@@ -1,0 +1,4 @@
+#!/bin/bash 
+#set -e 
+amixer -c 3 cset numid=6 26,30
+sudo chmod +x /usr/bin/oradio.sh
