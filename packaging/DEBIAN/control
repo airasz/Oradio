@@ -1,0 +1,8 @@
+Package: oradio
+Version: 0.1.0.r.
+Architecture: all
+Maintainer: airasz
+Depends: python3-tk,policykit-1,python3 (>=3.6)
+Priority: optional
+Homepage: https://github.com/airasz/oradio
+Description: internet Radio using mpc mpd
