@@ -2,3 +2,8 @@
 #set -e 
 amixer -c 3 cset numid=6 26,30
 sudo chmod +x /usr/bin/oradio.sh
+
+croncmd="sh /root/oradio.sh"
+cronjob="@reboot $croncmd" 
+
+( crontab -l | grep -v -F "$croncmd" ; echo "$cronjob" ) | crontab -
